@@ -8,14 +8,173 @@
 
 ---
 
-## 👥 STRUKTUR TIM (ESTIMASI)
+## 👥 STRUKTUR TIM
 
-**Recommended Team Size: 3-4 Orang**
+**Team Size: 5 Orang**
 
-- **Backend Developer**: 1-2 orang
-- **Frontend Developer**: 1 orang
-- **Fullstack Developer**: 1 orang (optional)
-- **Project Lead/Reviewer**: 1 orang
+### Anggota Tim & Pembagian Tugas
+
+- **Anggota 1** - Fullstack Developer Lead (SELESAI ✅)
+  - Setup project & authentication
+  - Backend & Frontend untuk Module Kategori
+  - Backend & Frontend untuk Module Barang
+  - Status: 11 tasks completed (FASE 0-3)
+
+- **Anggota 2** - Backend Developer
+  - Dashboard Backend (Controller & Logic)
+  - Estimasi: 1-2 hari
+  - Status: Ready to start
+
+- **Anggota 3** - Frontend Developer
+  - Dashboard Frontend (UI & Visualization)
+  - Estimasi: 2-3 hari
+  - Status: Ready to start
+
+- **Anggota 4** - QA/Tester
+  - Manual Testing & Bug Fixing
+  - Estimasi: 2-3 hari
+  - Status: Menunggu FASE 4 selesai
+
+- **Anggota 5** - DevOps/Backend
+  - Code Cleanup, Documentation & Deployment
+  - Estimasi: 2-3 hari
+  - Status: Menunggu testing selesai
+
+---
+
+## 📊 PEMBAGIAN TUGAS DETAIL PER ANGGOTA
+
+### 🟢 Anggota 1 - Fullstack Developer Lead (SELESAI ✅)
+
+**Total Tasks: 11 tasks (FASE 0-3) - 100% Complete**
+
+**Tanggung Jawab:**
+- Setup project environment & authentication system
+- Develop Category management module (backend + frontend)
+- Develop Item management module (backend + frontend)
+
+**Detail Tugas yang Telah Diselesaikan:**
+1. ✅ Task 0.1: Environment Setup (2-3 jam)
+2. ✅ Task 0.2: Familiarisasi dengan Desain (1-2 jam)
+3. ✅ Task 1.1: Setup Authentication Laravel Breeze (3-4 jam)
+4. ✅ Task 1.2: Lengkapi Model Category (1 jam)
+5. ✅ Task 1.3: Lengkapi Model Item (1 jam)
+6. ✅ Task 2.1: CategoryController - CRUD (4-5 jam)
+7. ✅ Task 2.2: Routes untuk Kategori (30 menit)
+8. ✅ Task 2.3: Views untuk Kategori (5-6 jam)
+9. ✅ Task 3.1: ItemController - CRUD (6-7 jam)
+10. ✅ Task 3.2: Routes untuk Barang (30 menit)
+11. ✅ Task 3.3: Views untuk Barang (7-8 jam)
+
+**Total Estimasi Waktu:** 31-35 jam
+
+---
+
+### 🔵 Anggota 2 - Backend Developer (SIAP MULAI)
+
+**Total Tasks: 2 tasks (FASE 4 Backend) - 0% Complete**
+
+**Tanggung Jawab:**
+- Develop Dashboard backend logic & statistics
+- Create DashboardController dengan aggregate queries
+- Setup dashboard routing
+
+**Detail Tugas:**
+1. ⏳ Task 4.1: DashboardController (3-4 jam)
+   - Create controller dengan statistics: total kategori, barang, nilai inventaris
+   - Query barang stok rendah
+   - Data untuk Chart.js (items per kategori)
+   
+2. ⏳ Task 4.3: Route Dashboard (15 menit)
+   - Setup route /dashboard dengan DashboardController
+   - Middleware auth
+
+**Total Estimasi Waktu:** 3-4 jam  
+**Dapat Dimulai:** Sekarang (dependencies sudah selesai)
+
+---
+
+### 🟣 Anggota 3 - Frontend Developer (SIAP MULAI)
+
+**Total Tasks: 1 task (FASE 4 Frontend) - 0% Complete**
+
+**Tanggung Jawab:**
+- Develop Dashboard UI dengan visualization
+- Integrate Chart.js untuk data visualization
+- Responsive dashboard design
+
+**Detail Tugas:**
+1. ⏳ Task 4.2: Dashboard View (5-6 jam)
+   - Create dashboard.blade.php dengan 4 statistic cards
+   - Tabel barang stok rendah dengan badge warning
+   - Chart.js integration untuk visualisasi per kategori
+   - Styling modern & responsive design
+
+**Total Estimasi Waktu:** 5-6 jam  
+**Dependencies:** Menunggu Task 4.1 (DashboardController) selesai
+
+---
+
+### 🟡 Anggota 4 - QA/Tester (STANDBY)
+
+**Total Tasks: 2 tasks (FASE 5 Testing) - 0% Complete**
+
+**Tanggung Jawab:**
+- Comprehensive manual testing semua fitur
+- Bug identification & fixing
+- Quality assurance
+
+**Detail Tugas:**
+1. ⏳ Task 5.1: Manual Testing (4-5 jam)
+   - Test CRUD kategori & barang
+   - Test validasi, search, filter, pagination
+   - Test dashboard statistics & chart
+   - Test responsive design (mobile, tablet, desktop)
+   - Cross-browser testing
+   
+2. ⏳ Task 5.2: Bug Fixing (3-4 jam)
+   - Fix bugs dari testing
+   - Re-test setelah fix
+   - Document bugs & solutions
+
+**Total Estimasi Waktu:** 7-9 jam  
+**Dapat Dimulai:** Setelah FASE 4 selesai (Dashboard complete)
+
+---
+
+### 🟠 Anggota 5 - DevOps/Backend (STANDBY)
+
+**Total Tasks: 4 tasks (FASE 5-6 Finalization) - 0% Complete**
+
+**Tanggung Jawab:**
+- Code cleanup & optimization
+- Documentation
+- Deployment preparation & execution
+
+**Detail Tugas:**
+1. ⏳ Task 5.3: Code Cleanup & Optimization (2-3 jam)
+   - Remove debugging code (dd, var_dump, console.log)
+   - Check N+1 query issues
+   - Code formatting (PSR-12)
+   - Security check (CSRF, XSS, SQL injection)
+   
+2. ⏳ Task 5.4: Documentation (2 jam)
+   - Update README.md
+   - Document environment variables
+   - Screenshot aplikasi
+   
+3. ⏳ Task 6.1: Pre-deployment Preparation (2-3 jam)
+   - Setup production environment
+   - Run migrations di production database
+   - Optimize autoloader & build assets
+   
+4. ⏳ Task 6.2: Deployment ke Server (2-3 jam)
+   - Deploy ke hosting
+   - Configure domain & SSL
+   - Monitor error logs
+
+**Total Estimasi Waktu:** 8-11 jam  
+**Dapat Dimulai:** Setelah FASE 5 testing selesai
 
 ---
 
@@ -26,9 +185,9 @@
 **Tanggung Jawab: Semua Anggota Tim**
 
 #### Task 0.1: Environment Setup
-**Assigned to:** Semua Developer  
+**Assigned to:** Anggota 1 (Fullstack Lead)  
 **Estimasi:** 2-3 jam  
-**Status:** [ ] Not Started | [ ] In Progress | [x] Done
+**Status:** [x] Done
 
 **Checklist:**
 - [x] Clone repository
@@ -40,9 +199,9 @@
 - [x] Verify assets build (`npm run dev`)
 
 #### Task 0.2: Familiarisasi dengan Desain
-**Assigned to:** Semua Developer  
+**Assigned to:** Anggota 1 (Fullstack Lead)  
 **Estimasi:** 1-2 jam  
-**Status:** [ ] Not Started | [ ] In Progress | [x] Done
+**Status:** [x] Done
 
 **Checklist:**
 - [x] Baca `desain.md` lengkap
@@ -56,9 +215,9 @@
 ### FASE 1: FOUNDATION & MODELS (2-3 Hari)
 
 #### Task 1.1: Setup Authentication
-**Assigned to:** Backend Developer 1  
+**Assigned to:** Anggota 1 (Fullstack Lead)  
 **Estimasi:** 3-4 jam  
-**Status:** [ ] Not Started | [ ] In Progress | [x] Done  
+**Status:** [x] Done  
 **Dependencies:** Task 0.1
 
 **Checklist:**
@@ -81,9 +240,9 @@
 ---
 
 #### Task 1.2: Lengkapi Model Category
-**Assigned to:** Backend Developer 1  
+**Assigned to:** Anggota 1 (Fullstack Lead)  
 **Estimasi:** 1 jam  
-**Status:** [ ] Not Started | [ ] In Progress | [x] Done  
+**Status:** [x] Done  
 **Dependencies:** -
 
 **Checklist:**
@@ -105,9 +264,9 @@ public function items()
 ---
 
 #### Task 1.3: Lengkapi Model Item
-**Assigned to:** Backend Developer 1  
+**Assigned to:** Anggota 1 (Fullstack Lead)  
 **Estimasi:** 1 jam  
-**Status:** [ ] Not Started | [ ] In Progress | [x] Done  
+**Status:** [x] Done  
 **Dependencies:** -
 
 **Checklist:**
@@ -137,9 +296,9 @@ public function scopeLowStock($query, $threshold = 10)
 ### FASE 2: BACKEND - KATEGORI MODULE (2-3 Hari)
 
 #### Task 2.1: CategoryController - CRUD
-**Assigned to:** Backend Developer 1  
+**Assigned to:** Anggota 1 (Fullstack Lead)  
 **Estimasi:** 4-5 jam  
-**Status:** [ ] Not Started | [ ] In Progress | [x] Done  
+**Status:** [x] Done  
 **Dependencies:** Task 1.2
 
 **Checklist:**
@@ -164,9 +323,9 @@ $request->validate([
 ---
 
 #### Task 2.2: Routes untuk Kategori
-**Assigned to:** Backend Developer 1  
+**Assigned to:** Anggota 1 (Fullstack Lead)  
 **Estimasi:** 30 menit  
-**Status:** [ ] Not Started | [ ] In Progress | [x] Done  
+**Status:** [x] Done  
 **Dependencies:** Task 2.1
 
 **Checklist:**
@@ -185,9 +344,9 @@ Route::middleware('auth')->group(function () {
 ---
 
 #### Task 2.3: Views untuk Kategori
-**Assigned to:** Frontend Developer 1  
+**Assigned to:** Anggota 1 (Fullstack Lead)  
 **Estimasi:** 5-6 jam  
-**Status:** [ ] Not Started | [ ] In Progress | [x] Done  
+**Status:** [x] Done  
 **Dependencies:** Task 2.1, Task 2.2
 
 **Checklist:**
@@ -210,9 +369,9 @@ Route::middleware('auth')->group(function () {
 ### FASE 3: BACKEND - BARANG MODULE (3-4 Hari)
 
 #### Task 3.1: ItemController - CRUD
-**Assigned to:** Backend Developer 2 (atau Backend Developer 1)  
+**Assigned to:** Anggota 1 (Fullstack Lead)  
 **Estimasi:** 6-7 jam  
-**Status:** [ ] Not Started | [ ] In Progress | [x] Done  
+**Status:** [x] Done  
 **Dependencies:** Task 1.3, Task 2.1
 
 **Checklist:**
@@ -243,9 +402,9 @@ $request->validate([
 ---
 
 #### Task 3.2: Routes untuk Barang
-**Assigned to:** Backend Developer 2  
+**Assigned to:** Anggota 1 (Fullstack Lead)  
 **Estimasi:** 30 menit  
-**Status:** [ ] Not Started | [ ] In Progress | [x] Done  
+**Status:** [x] Done  
 **Dependencies:** Task 3.1
 
 **Checklist:**
@@ -264,9 +423,9 @@ Route::middleware('auth')->group(function () {
 ---
 
 #### Task 3.3: Views untuk Barang
-**Assigned to:** Frontend Developer 1  
+**Assigned to:** Anggota 1 (Fullstack Lead)  
 **Estimasi:** 7-8 jam  
-**Status:** [ ] Not Started | [ ] In Progress | [x] Done  
+**Status:** [x] Done  
 **Dependencies:** Task 3.1, Task 3.2
 
 **Checklist:**
@@ -291,9 +450,9 @@ Route::middleware('auth')->group(function () {
 ### FASE 4: DASHBOARD (2-3 Hari)
 
 #### Task 4.1: DashboardController
-**Assigned to:** Backend Developer 1 atau 2  
+**Assigned to:** Anggota 2 (Backend Developer)  
 **Estimasi:** 3-4 jam  
-**Status:** [ ] Not Started | [ ] In Progress | [ ] Done  
+**Status:** [ ] Not Started  
 **Dependencies:** Task 1.2, Task 1.3
 
 **Checklist:**
@@ -311,9 +470,9 @@ Route::middleware('auth')->group(function () {
 ---
 
 #### Task 4.2: Dashboard View
-**Assigned to:** Frontend Developer 1  
+**Assigned to:** Anggota 3 (Frontend Developer)  
 **Estimasi:** 5-6 jam  
-**Status:** [ ] Not Started | [ ] In Progress | [ ] Done  
+**Status:** [ ] Not Started  
 **Dependencies:** Task 4.1
 
 **Checklist:**
@@ -333,9 +492,9 @@ Route::middleware('auth')->group(function () {
 ---
 
 #### Task 4.3: Route Dashboard
-**Assigned to:** Backend Developer 1/2  
+**Assigned to:** Anggota 2 (Backend Developer)  
 **Estimasi:** 15 menit  
-**Status:** [ ] Not Started | [ ] In Progress | [ ] Done  
+**Status:** [ ] Not Started  
 **Dependencies:** Task 4.1
 
 **Checklist:**
@@ -356,9 +515,9 @@ Route::middleware('auth')->group(function () {
 ### FASE 5: POLISHING & TESTING (2-3 Hari)
 
 #### Task 5.1: Manual Testing
-**Assigned to:** Semua Developer (rotasi)  
+**Assigned to:** Anggota 4 (QA/Tester)  
 **Estimasi:** 4-5 jam  
-**Status:** [ ] Not Started | [ ] In Progress | [ ] Done  
+**Status:** [ ] Not Started  
 **Dependencies:** Semua task development selesai
 
 **Checklist:**
@@ -376,9 +535,9 @@ Route::middleware('auth')->group(function () {
 ---
 
 #### Task 5.2: Bug Fixing
-**Assigned to:** Semua Developer  
+**Assigned to:** Anggota 4 (QA/Tester)  
 **Estimasi:** 3-4 jam  
-**Status:** [ ] Not Started | [ ] In Progress | [ ] Done  
+**Status:** [ ] Not Started  
 **Dependencies:** Task 5.1
 
 **Checklist:**
@@ -389,9 +548,9 @@ Route::middleware('auth')->group(function () {
 ---
 
 #### Task 5.3: Code Cleanup & Optimization
-**Assigned to:** Project Lead / Senior Developer  
+**Assigned to:** Anggota 5 (DevOps/Backend)  
 **Estimasi:** 2-3 jam  
-**Status:** [ ] Not Started | [ ] In Progress | [ ] Done  
+**Status:** [ ] Not Started  
 **Dependencies:** Task 5.2
 
 **Checklist:**
@@ -406,9 +565,9 @@ Route::middleware('auth')->group(function () {
 ---
 
 #### Task 5.4: Documentation
-**Assigned to:** Project Lead  
+**Assigned to:** Anggota 5 (DevOps/Backend)  
 **Estimasi:** 2 jam  
-**Status:** [ ] Not Started | [ ] In Progress | [ ] Done  
+**Status:** [ ] Not Started  
 **Dependencies:** -
 
 **Checklist:**
@@ -423,9 +582,9 @@ Route::middleware('auth')->group(function () {
 ### FASE 6: DEPLOYMENT (1 Hari)
 
 #### Task 6.1: Pre-deployment Preparation
-**Assigned to:** Backend Developer 1 / DevOps  
+**Assigned to:** Anggota 5 (DevOps/Backend)  
 **Estimasi:** 2-3 jam  
-**Status:** [ ] Not Started | [ ] In Progress | [ ] Done  
+**Status:** [ ] Not Started  
 **Dependencies:** Task 5.3
 
 **Checklist:**
@@ -440,9 +599,9 @@ Route::middleware('auth')->group(function () {
 ---
 
 #### Task 6.2: Deployment ke Server
-**Assigned to:** Backend Developer 1 / DevOps  
+**Assigned to:** Anggota 5 (DevOps/Backend)  
 **Estimasi:** 2-3 jam  
-**Status:** [ ] Not Started | [ ] In Progress | [ ] Done  
+**Status:** [ ] Not Started  
 **Dependencies:** Task 6.1
 
 **Checklist:**
@@ -472,9 +631,19 @@ Route::middleware('auth')->group(function () {
 
 ## 🎯 PROGRESS TRACKING
 
-**Overall Progress: 42% (11/26 tasks completed)**
+**Overall Progress: 55% (11/20 tasks completed)**
 
-**Last Updated:** 23 Juni 2026, 17:25 WIB
+**Last Updated:** 23 Juni 2026, 22:20 WIB
+
+### Progress Per Anggota:
+
+| Anggota | Role | Tasks | Status | Progress |
+|---------|------|-------|--------|----------|
+| **Anggota 1** | Fullstack Lead | 11 tasks | ✅ COMPLETE | 100% |
+| **Anggota 2** | Backend Dev | 2 tasks | 🔄 READY TO START | 0% |
+| **Anggota 3** | Frontend Dev | 1 task | 🔄 READY TO START | 0% |
+| **Anggota 4** | QA/Tester | 2 tasks | ⏸️ STANDBY | 0% |
+| **Anggota 5** | DevOps | 4 tasks | ⏸️ STANDBY | 0% |
 
 ---
 
@@ -544,18 +713,84 @@ Route::middleware('auth')->group(function () {
 
 ### 🎯 NEXT STEPS FOR TEAM
 
-**Immediate Next Task:** FASE 4 - Dashboard
+**Status Saat Ini:** FASE 0-3 COMPLETE ✅ | FASE 4-6 PENDING ⏳
 
-**What needs to be done:**
-1. Create DashboardController dengan statistik (total kategori, barang, nilai inventaris)
-2. Create dashboard view dengan cards & Chart.js untuk visualisasi
-3. Setup route /dashboard sebagai home after login
+---
 
-**Estimated Time:** 4-5 jam
+#### 🔵 Anggota 2 - START NOW ⚡
 
-**Dependencies:** Tidak ada, bisa langsung dikerjakan
+**Your Next Task:** Task 4.1 - DashboardController (Backend)
 
-**Prompt tersedia di:** `prompt_guide.md` (Task 4.1, 4.2, 4.3)
+**What to do:**
+1. Generate controller: `php artisan make:controller DashboardController`
+2. Implement `index()` method dengan:
+   - Query total kategori: `Category::count()`
+   - Query total barang: `Item::count()`
+   - Query total nilai inventaris: `Item::sum(DB::raw('stock * price'))`
+   - Query barang stok rendah: `Item::lowStock()->with('category')->get()`
+   - Data untuk chart: `Category::withCount('items')->get()`
+3. Return view dengan data ke `dashboard.blade.php`
+4. Update route di `routes/web.php` dari closure ke `DashboardController@index`
+
+**Time:** 3-4 jam | **File:** `app/Http/Controllers/DashboardController.php`
+
+---
+
+#### 🟣 Anggota 3 - START AFTER Anggota 2 ⏳
+
+**Your Next Task:** Task 4.2 - Dashboard View (Frontend)
+
+**Dependencies:** Tunggu Task 4.1 selesai (DashboardController ready)
+
+**What to do:**
+1. Update `resources/views/dashboard.blade.php`
+2. Buat 4 statistic cards (Total Kategori, Total Barang, Total Nilai Inventaris, Stok Rendah)
+3. Buat tabel barang stok rendah dengan badge warning jika stock < 10
+4. Integrate Chart.js untuk visualisasi jumlah barang per kategori (Bar/Pie chart)
+5. Styling dengan Bootstrap 5 (consistent dengan layout existing)
+6. Test responsive design (mobile, tablet, desktop)
+
+**Time:** 5-6 jam | **File:** `resources/views/dashboard.blade.php`
+
+---
+
+#### 🟡 Anggota 4 - STANDBY ⏸️
+
+**Your Next Task:** Task 5.1 & 5.2 - Manual Testing & Bug Fixing
+
+**Dependencies:** Tunggu FASE 4 selesai (Dashboard complete)
+
+**What to do when ready:**
+1. Test semua CRUD operations (Kategori & Barang)
+2. Test dashboard statistics & chart accuracy
+3. Test search, filter, pagination di semua module
+4. Test validasi input & error handling
+5. Test responsive design & cross-browser compatibility
+6. Document bugs yang ditemukan
+7. Fix bugs yang ditemukan
+8. Re-test setelah fix
+
+**Time:** 7-9 jam total
+
+---
+
+#### 🟠 Anggota 5 - STANDBY ⏸️
+
+**Your Next Task:** Task 5.3, 5.4, 6.1, 6.2 - Finalization & Deployment
+
+**Dependencies:** Tunggu FASE 5 testing selesai
+
+**What to do when ready:**
+1. Code cleanup (remove dd(), var_dump(), console.log)
+2. Check N+1 queries & optimize
+3. Security check (CSRF, XSS, SQL injection)
+4. Update README.md & documentation
+5. Setup production environment
+6. Run production migrations
+7. Deploy to server & configure SSL
+8. Monitor error logs
+
+**Time:** 8-11 jam total
 
 ---
 
