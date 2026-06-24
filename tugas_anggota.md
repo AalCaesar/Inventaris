@@ -472,16 +472,16 @@ Route::middleware('auth')->group(function () {
 #### Task 4.2: Dashboard View
 **Assigned to:** Anggota 3 (Frontend Developer)  
 **Estimasi:** 5-6 jam  
-**Status:** [ ] Not Started  
+**Status:** [x] Done  
 **Dependencies:** Task 4.1
 
 **Checklist:**
-- [ ] Buat `dashboard.blade.php`
-- [ ] Tampilkan 4 statistic cards (kategori, barang, nilai total, stok rendah)
-- [ ] Tabel barang stok rendah dengan warning badge
-- [ ] Integrate Chart.js untuk visualisasi data per kategori
-- [ ] Styling yang menarik dengan cards dan colors
-- [ ] Responsive design
+- [x] Buat `dashboard.blade.php`
+- [x] Tampilkan 4 statistic cards (kategori, barang, nilai total, stok rendah)
+- [x] Tabel barang stok rendah dengan warning badge
+- [x] Integrate Chart.js untuk visualisasi data per kategori
+- [x] Styling yang menarik dengan cards dan colors
+- [x] Responsive design
 
 **Files to Create:**
 - `resources/views/dashboard.blade.php`
@@ -494,13 +494,13 @@ Route::middleware('auth')->group(function () {
 #### Task 4.3: Route Dashboard
 **Assigned to:** Anggota 2 (Backend Developer)  
 **Estimasi:** 15 menit  
-**Status:** [ ] Not Started  
+**Status:** [x] Done  
 **Dependencies:** Task 4.1
 
 **Checklist:**
-- [ ] Tambahkan route untuk dashboard
-- [ ] Set sebagai halaman home setelah login
-- [ ] Middleware `auth`
+- [x] Tambahkan route untuk dashboard
+- [x] Set sebagai halaman home setelah login
+- [x] Middleware `auth`
 
 **File:** `routes/web.php`
 
@@ -631,9 +631,9 @@ Route::middleware('auth')->group(function () {
 
 ## 🎯 PROGRESS TRACKING
 
-**Overall Progress: 65% (13/20 tasks completed)**
+**Overall Progress: 70% (14/20 tasks completed)**
 
-**Last Updated:** 23 Juni 2026, 23:14 WIB
+**Last Updated:** 24 Juni 2026, 12:38 WIB
 
 ### Progress Per Anggota:
 
@@ -641,7 +641,7 @@ Route::middleware('auth')->group(function () {
 |---------|------|-------|--------|----------|
 | **Anggota 1** | Fullstack Lead | 11 tasks | ✅ COMPLETE | 100% |
 | **Anggota 2** | Backend Dev | 2 tasks | ✅ COMPLETE | 100% |
-| **Anggota 3** | Frontend Dev | 1 task | 🔄 READY TO START | 0% |
+| **Anggota 3** | Frontend Dev | 1 task | ✅ COMPLETE | 100% |
 | **Anggota 4** | QA/Tester | 2 tasks | ⏸️ STANDBY | 0% |
 | **Anggota 5** | DevOps | 4 tasks | ⏸️ STANDBY | 0% |
 
