@@ -70,7 +70,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('items.*') ? 'active' : '' }}" href="#">
+                            <a class="nav-link {{ request()->routeIs('items.*') ? 'active' : '' }}" href="{{ route('items.index') }}">
                                 <i class="fas fa-box"></i>
                                 Barang
                             </a>
