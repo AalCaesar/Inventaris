@@ -627,15 +627,15 @@ Melakukan comprehensive manual testing terhadap seluruh fitur aplikasi untuk mem
 
 **A. AUTHENTICATION TESTING (30 menit)**
 
-- [ ] **Register**: Buat user baru dengan email valid
-  - [ ] Password < 8 karakter → ditolak dengan error message
-  - [ ] Password ≥ 8 karakter → berhasil register
-- [ ] **Login**: Login dengan credentials correct
-  - [ ] Email/password salah → error message "credentials do not match"
-  - [ ] Email/password benar → redirect ke dashboard
-- [ ] **Logout**: Click logout → redirect ke login page
-- [ ] **Session**: Close browser, buka lagi → masih logged in (remember me)
-- [ ] **Protected Routes**: Akses `/categories` tanpa login → redirect ke login
+- [x] **Register**: Buat user baru dengan email valid
+  - [x] Password < 8 karakter → ditolak dengan error message
+  - [x] Password ≥ 8 karakter → berhasil register
+- [x] **Login**: Login dengan credentials correct
+  - [x] Email/password salah → error message "credentials do not match"
+  - [x] Email/password benar → redirect ke dashboard
+- [x] **Logout**: Click logout → redirect ke login page
+- [x] **Session**: Close browser, buka lagi → masih logged in (remember me)
+- [x] **Protected Routes**: Akses `/categories` tanpa login → redirect ke login
 
 **B. KATEGORI MODULE TESTING (1 jam)**
 
