@@ -162,6 +162,15 @@
             color: #f8fafc !important;
         }
 
+        .card .text-dark,
+        .card .text-gray-800,
+        .card .text-gray-700,
+        .card .text-body,
+        .card .fw-semibold,
+        .card .metadata-value {
+            color: #e5e7eb !important;
+        }
+
         .card-body {
             padding: 1.5rem;
         }
@@ -217,9 +226,28 @@
         .form-text,
         small.text-muted,
         .card small,
-        .card .text-muted {
+        .card .text-muted,
+        .card .text-secondary,
+        .card time {
             color: #cbd5e1 !important;
             font-weight: 500;
+        }
+
+        .card .text-muted strong,
+        .card .text-secondary strong {
+            color: #f8fafc !important;
+        }
+
+        .card .row.mb-2 strong,
+        .card .row.mb-2 small,
+        .card .row.mb-2 .text-muted {
+            color: #f8fafc !important;
+            opacity: 1 !important;
+        }
+
+        .card .row.mb-2 small {
+            color: #cbd5e1 !important;
+            font-weight: 700;
         }
 
         .form-control,

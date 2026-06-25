@@ -1,63 +1,58 @@
 <x-guest-layout>
-    <!-- Branding -->
-    <div class="mb-6 text-center">
-        <h2 class="text-2xl font-bold text-gray-800">Sistem Inventaris</h2>
-        <p class="text-sm text-gray-600 mt-1">Manajemen Inventaris Barang</p>
+    <div class="auth-form-header">
+        <div class="auth-form-icon">
+            <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-8.25-4.5L3.75 7.5m16.5 0l-8.25 4.5m8.25-4.5v9l-8.25 4.5m0-9L3.75 7.5m8.25 4.5v9m-8.25-13.5v9l8.25 4.5" />
+            </svg>
+        </div>
+        <div class="auth-form-badge">Sistem Inventaris</div>
+        <h2 class="auth-form-title">Masuk ke Dashboard</h2>
+        <p class="auth-form-description">Kelola kategori, stok, dan penyimpanan barang dari satu tempat.</p>
     </div>
 
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+    @if (session('status'))
+        <div class="auth-status">{{ session('status') }}</div>
+    @endif
 
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="{{ route('login') }}" class="auth-form">
         @csrf
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
+        <div class="auth-field">
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="username" placeholder="nama@email.com">
+            @if ($errors->get('email'))
+                <div class="auth-error">{{ $errors->first('email') }}</div>
             @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
         </div>
 
-        <!-- Register Link -->
-        <div class="mt-4 text-center">
-            <p class="text-sm text-gray-600">
-                Belum punya akun?
-                <a href="{{ route('register') }}" class="underline text-indigo-600 hover:text-indigo-900 font-semibold">
-                    Daftar di sini
-                </a>
-            </p>
+        <div class="auth-field">
+            <div class="auth-row-between">
+                <label for="password">Password</label>
+                @if (Route::has('password.request'))
+                    <a class="auth-link" href="{{ route('password.request') }}">Lupa password?</a>
+                @endif
+            </div>
+            <input id="password" type="password" name="password" required autocomplete="current-password" placeholder="Masukkan password">
+            @if ($errors->get('password'))
+                <div class="auth-error">{{ $errors->first('password') }}</div>
+            @endif
+        </div>
+
+        <label for="remember_me" class="auth-remember">
+            <input id="remember_me" type="checkbox" name="remember">
+            Ingat saya
+        </label>
+
+        <button type="submit" class="auth-submit">
+            Masuk
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+        </button>
+
+        <div class="auth-switch">
+            Belum punya akun?
+            <a href="{{ route('register') }}" class="auth-link">Daftar di sini</a>
         </div>
     </form>
 </x-guest-layout>
