@@ -899,9 +899,9 @@ composer require barryvdh/laravel-debugbar --dev
 ```
 
 Visit setiap page dan check Debugbar → Queries tab:
-- [ ] Categories index: 2-3 queries (bukan 10+ queries per category)
-- [ ] Items index: 2-3 queries (eager load category)
-- [ ] Dashboard: 5-6 queries max
+- [x] Categories index: 2-3 queries (bukan 10+ queries per category)
+- [x] Items index: 2-3 queries (eager load category)
+- [x] Dashboard: 5-6 queries max
 
 Fix N+1 queries dengan eager loading:
 ```php
@@ -923,21 +923,21 @@ Run Laravel Pint untuk auto-format code:
 ```
 
 Manual checks:
-- [ ] Indentation consistent (4 spaces)
-- [ ] No trailing whitespace
-- [ ] Files end with newline
-- [ ] No unused imports
+- [x] Indentation consistent (4 spaces)
+- [x] No trailing whitespace
+- [x] Files end with newline
+- [x] No unused imports
 
 **STEP 4: Security Check** (1 jam)
 
 Verify security best practices:
-- [ ] **CSRF Protection**: Semua form memiliki `@csrf`
-- [ ] **XSS Prevention**: Output menggunakan `{{ }}` bukan `{!! !!}`
-- [ ] **SQL Injection**: Tidak ada raw queries, semua pakai Eloquent
-- [ ] **Mass Assignment**: Models memiliki `$fillable` atau `$guarded`
-- [ ] **Authentication**: Semua routes protected dengan `auth` middleware
-- [ ] **Validation**: Server-side validation di semua form
-- [ ] **.env**: File `.env` tidak ter-commit ke Git
+- [x] **CSRF Protection**: Semua form memiliki `@csrf`
+- [x] **XSS Prevention**: Output menggunakan `{{ }}` bukan `{!! !!}`
+- [x] **SQL Injection**: Tidak ada raw queries, semua pakai Eloquent
+- [x] **Mass Assignment**: Models memiliki `$fillable` atau `$guarded`
+- [x] **Authentication**: Semua routes protected dengan `auth` middleware
+- [x] **Validation**: Server-side validation di semua form
+- [x] **.env**: File `.env` tidak ter-commit ke Git
 
 ---
 
