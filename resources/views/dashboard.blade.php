@@ -108,7 +108,7 @@
                         Barang Perlu Restock
                     </h6>
                     @if($lowStockItems->count() > 0)
-                        <a href="{{ route('items.index', ['stock_filter' => 'low']) }}" class="btn btn-sm btn-outline-warning">
+                        <a href="{{ route('items.index') }}" class="btn btn-sm btn-outline-warning">
                             <i class="fas fa-list me-1"></i> Lihat Semua
                         </a>
                     @endif
