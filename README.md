@@ -164,6 +164,17 @@ routes/web.php                  # Application routes
 
 Manual testing checklist tersedia di `panduan_kerja_anggota.md` Section A-G.
 
+## Deployment
+
+Panduan lengkap deployment ke production tersedia di [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+
+Dokumentasi meliputi:
+- Pre-deployment checklist
+- Deployment ke Shared Hosting, VPS, dan Cloud
+- Post-deployment verification
+- Troubleshooting guide
+- Maintenance & backup strategies
+
 ## License
 
 MIT License
