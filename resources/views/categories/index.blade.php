@@ -52,12 +52,12 @@
                     <tbody>
                         @forelse($categories as $index => $category)
                             <tr>
-                                <td>{{ $categories->firstItem() + $index }}</td>
-                                <td>{{ $category->name }}</td>
-                                <td class="text-center">
+                                <td data-label="No">{{ $categories->firstItem() + $index }}</td>
+                                <td data-label="Nama Kategori">{{ $category->name }}</td>
+                                <td data-label="Jumlah Barang" class="text-center">
                                     <span class="badge bg-info">{{ $category->items_count }} barang</span>
                                 </td>
-                                <td class="text-center">
+                                <td data-label="Aksi" class="text-center">
                                     <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning btn-sm">
                                         <i class="fas fa-edit"></i> Edit
                                     </a>

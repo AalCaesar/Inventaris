@@ -16,7 +16,7 @@ class CategoryController extends Controller
 
         // Search functionality
         if ($request->has('search') && $request->search != '') {
-            $query->where('name', 'like', '%' . $request->search . '%');
+            $query->where('name', 'like', '%'.$request->search.'%');
         }
 
         $categories = $query->latest()->paginate(10);
@@ -53,6 +53,7 @@ class CategoryController extends Controller
     public function show(string $id)
     {
         $category = Category::withCount('items')->findOrFail($id);
+
         return view('categories.show', compact('category'));
     }
 
@@ -62,6 +63,7 @@ class CategoryController extends Controller
     public function edit(string $id)
     {
         $category = Category::findOrFail($id);
+
         return view('categories.edit', compact('category'));
     }
 
@@ -91,7 +93,7 @@ class CategoryController extends Controller
         // Check if category has related items
         if ($category->items_count > 0) {
             return redirect()->route('categories.index')
-                ->with('error', 'Kategori tidak bisa dihapus karena masih ada ' . $category->items_count . ' barang terkait.');
+                ->with('error', 'Kategori tidak bisa dihapus karena masih ada '.$category->items_count.' barang terkait.');
         }
 
         $category->delete();

@@ -200,6 +200,226 @@ Menggunakan tabel users default Laravel untuk autentikasi.
 
 ---
 
+## 💎 PREMIUM DESIGN SYSTEM
+
+### Color Palette (Elegant & Professional)
+
+**Primary Colors:**
+- **Navy Blue (Primary)**: `#1e3a8a` - Header, buttons, accents
+- **Royal Blue**: `#2563eb` - Hover states, links
+- **Light Blue**: `#3b82f6` - Active states, highlights
+
+**Neutral Colors:**
+- **White**: `#ffffff` - Background, cards
+- **Light Gray**: `#f8fafc` - Secondary background
+- **Medium Gray**: `#e2e8f0` - Borders, dividers
+- **Dark Gray**: `#64748b` - Secondary text
+- **Charcoal**: `#1e293b` - Primary text
+
+**Accent Colors:**
+- **Success Green**: `#10b981` - Success messages, positive actions
+- **Warning Amber**: `#f59e0b` - Warnings, low stock alerts
+- **Danger Red**: `#ef4444` - Errors, delete actions
+- **Info Cyan**: `#06b6d4` - Info messages, tooltips
+
+### Typography System
+
+**Font Family:**
+- Primary: `'Inter', 'Segoe UI', system-ui, sans-serif`
+- Monospace (kode): `'JetBrains Mono', 'Fira Code', monospace`
+
+**Font Sizes (rem):**
+- **Heading 1**: 2.5rem (40px) - Page titles
+- **Heading 2**: 2rem (32px) - Section headers
+- **Heading 3**: 1.5rem (24px) - Card titles
+- **Body Large**: 1.125rem (18px) - Important text
+- **Body**: 1rem (16px) - Regular text
+- **Small**: 0.875rem (14px) - Captions, labels
+- **Tiny**: 0.75rem (12px) - Timestamps, metadata
+
+**Font Weights:**
+- Light: 300
+- Regular: 400
+- Medium: 500
+- Semibold: 600
+- Bold: 700
+
+### Spacing System (8px base unit)
+
+**Spacing Scale:**
+- **xs**: 4px (0.25rem) - Tight spacing
+- **sm**: 8px (0.5rem) - Close elements
+- **md**: 16px (1rem) - Default spacing
+- **lg**: 24px (1.5rem) - Section spacing
+- **xl**: 32px (2rem) - Large gaps
+- **2xl**: 48px (3rem) - Page sections
+- **3xl**: 64px (4rem) - Major sections
+
+### Shadow System (Soft & Elegant)
+
+**Elevation Levels:**
+- **Shadow XS** (Subtle): `0 1px 2px rgba(0, 0, 0, 0.05)`
+- **Shadow SM** (Cards): `0 2px 4px rgba(30, 58, 138, 0.08)`
+- **Shadow MD** (Elevated): `0 4px 12px rgba(30, 58, 138, 0.12)`
+- **Shadow LG** (Modal): `0 8px 24px rgba(30, 58, 138, 0.16)`
+- **Shadow XL** (Dropdown): `0 12px 32px rgba(30, 58, 138, 0.20)`
+
+### Button Styles (Premium with Hover Effects)
+
+**Primary Button:**
+```css
+background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+color: #ffffff;
+padding: 12px 24px;
+border-radius: 8px;
+font-weight: 600;
+box-shadow: 0 4px 12px rgba(30, 58, 138, 0.20);
+transition: all 0.3s ease;
+
+/* Hover */
+transform: translateY(-2px);
+box-shadow: 0 8px 20px rgba(30, 58, 138, 0.30);
+```
+
+**Secondary Button:**
+```css
+background: #ffffff;
+color: #1e3a8a;
+border: 2px solid #e2e8f0;
+padding: 12px 24px;
+border-radius: 8px;
+font-weight: 600;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+transition: all 0.3s ease;
+
+/* Hover */
+border-color: #2563eb;
+color: #2563eb;
+background: #f8fafc;
+```
+
+**Success/Danger/Warning Buttons:**
+- Similar style dengan warna sesuai (green/red/amber)
+- Consistent shadow dan hover effects
+
+### Card Styles (Clean & Modern)
+
+**Standard Card:**
+```css
+background: #ffffff;
+border-radius: 12px;
+padding: 24px;
+box-shadow: 0 2px 8px rgba(30, 58, 138, 0.08);
+border: 1px solid #e2e8f0;
+transition: all 0.3s ease;
+
+/* Hover */
+box-shadow: 0 4px 16px rgba(30, 58, 138, 0.12);
+transform: translateY(-2px);
+```
+
+**Stats Card:**
+- Border-left accent (4px solid primary/success/warning/danger)
+- Icon dengan gradient background
+- Large number typography (2.5rem, bold)
+
+### Table Styles (Professional)
+
+**Table Header:**
+```css
+background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+color: #1e293b;
+font-weight: 600;
+font-size: 0.875rem;
+text-transform: uppercase;
+letter-spacing: 0.05em;
+border-bottom: 2px solid #e2e8f0;
+```
+
+**Table Rows:**
+- Alternating background (#ffffff / #f8fafc)
+- Hover state: `background: #f1f5f9; transition: 0.2s`
+- Border-bottom: `1px solid #f1f5f9`
+
+### Form Elements (Clean & Accessible)
+
+**Input Fields:**
+```css
+border: 2px solid #e2e8f0;
+border-radius: 8px;
+padding: 12px 16px;
+font-size: 1rem;
+transition: all 0.3s ease;
+
+/* Focus */
+border-color: #2563eb;
+box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+outline: none;
+```
+
+**Labels:**
+- Font-weight: 600
+- Color: #1e293b
+- Margin-bottom: 8px
+
+### Badge Styles
+
+**Success Badge** (In Stock):
+```css
+background: #d1fae5;
+color: #065f46;
+padding: 4px 12px;
+border-radius: 12px;
+font-weight: 600;
+font-size: 0.75rem;
+```
+
+**Warning Badge** (Low Stock):
+```css
+background: #fef3c7;
+color: #92400e;
+/* Similar styling */
+```
+
+**Danger Badge** (Out of Stock):
+```css
+background: #fee2e2;
+color: #991b1b;
+/* Similar styling */
+```
+
+### Responsive Breakpoints
+
+**Mobile First Approach:**
+- **Mobile**: < 640px (sm)
+- **Tablet**: 640px - 1024px (md/lg)
+- **Desktop**: > 1024px (xl/2xl)
+
+**Responsive Guidelines:**
+- Cards: Stack vertically on mobile (col-12), 2 columns on tablet, 4 columns on desktop
+- Tables: Card-style layout on mobile (horizontal scroll alternative)
+- Buttons: Full width on mobile, auto width on desktop
+- Sidebar: Hamburger menu on mobile, fixed sidebar on desktop
+- Font sizes: Scale down 10-15% on mobile
+- Spacing: Reduce padding/margin by 25-30% on mobile
+
+### Animation & Transitions
+
+**Standard Transitions:**
+- Duration: `0.3s`
+- Easing: `cubic-bezier(0.4, 0, 0.2, 1)` (ease-in-out)
+
+**Hover Effects:**
+- Buttons: `translateY(-2px)` + shadow increase
+- Cards: `translateY(-2px)` + shadow increase
+- Links: Color change + underline animation
+
+**Loading States:**
+- Skeleton screens with shimmer effect
+- Spinner: Primary color with smooth rotation
+
+---
+
 ## 📐 BUSINESS RULES & VALIDASI
 
 ### Kategori

@@ -18,9 +18,9 @@ class ItemController extends Controller
         // Search functionality (item_code or name)
         if ($request->has('search') && $request->search != '') {
             $search = $request->search;
-            $query->where(function($q) use ($search) {
-                $q->where('item_code', 'like', '%' . $search . '%')
-                  ->orWhere('name', 'like', '%' . $search . '%');
+            $query->where(function ($q) use ($search) {
+                $q->where('item_code', 'like', '%'.$search.'%')
+                    ->orWhere('name', 'like', '%'.$search.'%');
             });
         }
 
@@ -41,6 +41,7 @@ class ItemController extends Controller
     public function create()
     {
         $categories = Category::all();
+
         return view('items.create', compact('categories'));
     }
 
@@ -82,6 +83,7 @@ class ItemController extends Controller
     public function show(string $id)
     {
         $item = Item::with('category')->findOrFail($id);
+
         return view('items.show', compact('item'));
     }
 
@@ -92,6 +94,7 @@ class ItemController extends Controller
     {
         $item = Item::findOrFail($id);
         $categories = Category::all();
+
         return view('items.edit', compact('item', 'categories'));
     }
 
@@ -104,7 +107,7 @@ class ItemController extends Controller
 
         $validated = $request->validate([
             'category_id' => 'required|exists:categories,id',
-            'item_code' => 'required|string|max:50|unique:items,item_code,' . $id,
+            'item_code' => 'required|string|max:50|unique:items,item_code,'.$id,
             'name' => 'required|string|max:255',
             'stock' => 'required|integer|min:0',
             'price' => 'required|integer|min:0',

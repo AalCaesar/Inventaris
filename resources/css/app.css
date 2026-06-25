@@ -1,3 +1,437 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ============================================
+   PREMIUM DESIGN SYSTEM
+   ============================================ */
+
+/* CSS Variables - Premium Color Palette */
+:root {
+    /* Primary Colors */
+    --color-primary: #1e3a8a;
+    --color-primary-hover: #2563eb;
+    --color-primary-light: #3b82f6;
+
+    /* Neutral Colors */
+    --color-white: #ffffff;
+    --color-gray-50: #f8fafc;
+    --color-gray-100: #f1f5f9;
+    --color-gray-200: #e2e8f0;
+    --color-gray-400: #94a3b8;
+    --color-gray-600: #64748b;
+    --color-gray-900: #1e293b;
+
+    /* Accent Colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-danger: #ef4444;
+    --color-info: #06b6d4;
+
+    /* Shadows */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 2px 4px rgba(30, 58, 138, 0.08);
+    --shadow-md: 0 4px 12px rgba(30, 58, 138, 0.12);
+    --shadow-lg: 0 8px 24px rgba(30, 58, 138, 0.16);
+    --shadow-xl: 0 12px 32px rgba(30, 58, 138, 0.20);
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+}
+
+    /* Premium Button Styles - Override Bootstrap */
+    .btn-primary {
+        background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%) !important;
+        color: var(--color-white) !important;
+        padding: 0.5rem 1.25rem !important; /* Sesuaikan padding agar proporsional */
+        border-radius: 0.5rem !important;
+        font-weight: 600 !important;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: none !important;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+        background: linear-gradient(135deg, var(--color-primary-hover) 0%, var(--color-primary-light) 100%) !important;
+    }
+
+    /* Override Outline Buttons */
+    .btn-outline-warning {
+        border: 2px solid var(--color-warning) !important;
+        color: var(--color-warning) !important;
+        background: transparent !important;
+        border-radius: 0.5rem !important;
+        font-weight: 600 !important;
+    }
+
+    .btn-outline-warning:hover {
+        background: var(--color-warning) !important;
+        color: var(--color-white) !important;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .btn-success {
+        background: linear-gradient(135deg, var(--color-success) 0%, #059669 100%) !important;
+        border: none !important;
+        box-shadow: var(--shadow-md);
+    }
+
+    .btn-success:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .btn-warning {
+        background: linear-gradient(135deg, var(--color-warning) 0%, #d97706 100%) !important;
+        border: none !important;
+        box-shadow: var(--shadow-md);
+    }
+
+    .btn-warning:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .btn-danger {
+        background: linear-gradient(135deg, var(--color-danger) 0%, #dc2626 100%) !important;
+        border: none !important;
+        box-shadow: var(--shadow-md);
+    }
+
+    .btn-danger:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    /* Premium Card Styles - Override Bootstrap */
+    .card {
+        background: var(--color-white);
+        border-radius: 0.75rem !important;
+        padding: 0;
+        box-shadow: var(--shadow-sm) !important;
+        border: 1px solid var(--color-gray-200); /* Hapus !important agar border-start Bootstrap bisa bekerja */
+        transition: all 0.3s ease;
+    }
+
+    .card:hover {
+        box-shadow: var(--shadow-md) !important;
+        transform: translateY(-2px);
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .card-header {
+        background: linear-gradient(180deg, var(--color-gray-50) 0%, var(--color-white) 100%) !important;
+        border-bottom: 1px solid var(--color-gray-200) !important;
+        padding: 1rem 1.5rem;
+        font-weight: 600;
+        border-radius: 0.75rem 0.75rem 0 0 !important;
+    }
+
+    /* Stats Card with Border Accent */
+    .stats-card {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .stats-card::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    }
+
+    /* Premium Table Styles - Override Bootstrap */
+    .table thead {
+        background: linear-gradient(180deg, var(--color-gray-50) 0%, var(--color-gray-100) 100%);
+        color: var(--color-gray-900);
+        font-weight: 600;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .table thead th {
+        border-bottom: 2px solid var(--color-gray-200) !important;
+        padding: 1rem 0.75rem;
+    }
+
+    .table tbody tr {
+        transition: background-color 0.2s ease;
+        border-bottom: 1px solid var(--color-gray-100);
+    }
+
+    .table tbody tr:hover {
+        background-color: var(--color-gray-50);
+    }
+
+    .table tbody td {
+        padding: 0.875rem 0.75rem;
+        vertical-align: middle;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: rgba(248, 250, 252, 0.5);
+    }
+
+    /* Premium Form Inputs - Override Bootstrap */
+    .form-control, .form-select {
+        border: 2px solid var(--color-gray-200) !important;
+        border-radius: 0.5rem !important;
+        padding: 0.75rem 1rem;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+    }
+
+    .form-control:focus, .form-select:focus {
+        border-color: var(--color-primary-hover) !important;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10) !important;
+        outline: none;
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: var(--color-gray-900);
+        margin-bottom: 0.5rem;
+        font-size: 0.875rem;
+    }
+
+    .input-group {
+        box-shadow: var(--shadow-xs);
+        border-radius: 0.5rem;
+    }
+
+    /* Premium Badges - Override Bootstrap */
+    .badge {
+        padding: 0.375rem 0.875rem !important;
+        border-radius: 0.75rem !important;
+        font-weight: 600;
+        font-size: 0.75rem;
+        letter-spacing: 0.025em;
+    }
+
+    .badge.bg-success, .badge-success {
+        background-color: #d1fae5 !important;
+        color: #065f46 !important;
+    }
+
+    .badge.bg-warning, .badge-warning {
+        background-color: #fef3c7 !important;
+        color: #92400e !important;
+    }
+
+    .badge.bg-danger, .badge-danger {
+        background-color: #fee2e2 !important;
+        color: #991b1b !important;
+    }
+
+    .badge.bg-info, .badge-info {
+        background-color: #cffafe !important;
+        color: #164e63 !important;
+    }
+
+    .badge.bg-secondary, .badge-secondary {
+        background-color: var(--color-gray-200) !important;
+        color: var(--color-gray-900) !important;
+    }
+
+    .badge.bg-primary, .badge-primary {
+        background-color: #dbeafe !important;
+        color: #1e40af !important;
+    }
+
+    /* Sidebar Premium Styles */
+    .sidebar-premium {
+        background: linear-gradient(180deg, var(--color-gray-900) 0%, #0f172a 100%);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .sidebar-premium .nav-link {
+        color: var(--color-gray-400);
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        transition: all 0.2s ease;
+        margin: 0.25rem 0;
+    }
+
+    .sidebar-premium .nav-link:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        color: var(--color-white);
+    }
+
+    .sidebar-premium .nav-link.active {
+        background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+        color: var(--color-white);
+        box-shadow: var(--shadow-sm);
+    }
+
+    /* Loading Skeleton */
+    .skeleton {
+        background: linear-gradient(90deg, var(--color-gray-200) 25%, var(--color-gray-100) 50%, var(--color-gray-200) 75%);
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+        border-radius: 0.5rem;
+    }
+
+    @keyframes shimmer {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+
+    /* Premium Animations */
+    .fade-in {
+        animation: fadeIn 0.3s ease-in;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Enhanced Card Borders */
+    .border-left-primary {
+        border-left: 0.25rem solid var(--color-primary) !important;
+    }
+
+    .border-left-success {
+        border-left: 0.25rem solid var(--color-success) !important;
+    }
+
+    .border-left-warning {
+        border-left: 0.25rem solid var(--color-warning) !important;
+    }
+
+    .border-left-danger {
+        border-left: 0.25rem solid var(--color-danger) !important;
+    }
+
+    /* Smooth Transitions for All Interactive Elements */
+    button, a, input, select, textarea, .card, .btn {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+/* ============================================
+   MOBILE RESPONSIVE ENHANCEMENTS
+   ============================================ */
+
+    /* Mobile-friendly table cards */
+    @media (max-width: 767.98px) {
+        .table-responsive table thead {
+            display: none;
+        }
+
+        .table-responsive table,
+        .table-responsive table tbody,
+        .table-responsive table tr,
+        .table-responsive table td {
+            display: block;
+            width: 100%;
+        }
+
+        .table-responsive table tr {
+            margin-bottom: 1rem;
+            border: 1px solid var(--color-gray-200);
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            background-color: var(--color-white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .table-responsive table td {
+            text-align: left !important;
+            padding: 0.5rem 0;
+            border: none;
+            position: relative;
+            padding-left: 50%;
+        }
+
+        .table-responsive table td:before {
+            content: attr(data-label);
+            position: absolute;
+            left: 0;
+            width: 45%;
+            padding-right: 10px;
+            font-weight: 600;
+            color: var(--color-gray-600);
+        }
+
+        .table-responsive table td:first-child:before {
+            content: 'No: ';
+        }
+
+        /* Action buttons on mobile */
+        .table-responsive table td .btn {
+            margin: 0.25rem 0;
+            min-width: 44px;
+            min-height: 44px;
+        }
+
+        /* Mobile form optimizations */
+        .col-md-10, .col-md-5, .col-md-4, .col-md-3, .col-md-2, .col-md-8 {
+            margin-bottom: 0.75rem;
+        }
+
+        .btn {
+            width: 100% !important;
+            min-height: 48px;
+            font-size: 1rem;
+        }
+
+        /* Mobile cards padding */
+        .card-body {
+            padding: 1rem;
+        }
+
+        /* Mobile statistics cards */
+        .col-xl-3.col-md-6 {
+            margin-bottom: 1rem;
+        }
+
+        /* Mobile dashboard adjustments */
+        h1, h2 {
+            font-size: 1.5rem !important;
+        }
+
+        h5 {
+            font-size: 1rem !important;
+        }
+
+        /* Better touch targets */
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        input[type="password"],
+        select,
+        textarea {
+            min-height: 48px;
+            font-size: 16px; /* Prevents zoom on iOS */
+        }
+    }
+
+    /* Small mobile devices */
+    @media (max-width: 575.98px) {
+        .main-content {
+            padding: 0.5rem !important;
+        }
+
+        .container-fluid {
+            padding: 0.5rem;
+        }
+
+        .card {
+            margin-bottom: 1rem;
+        }
+    }

@@ -68,13 +68,13 @@
                     <tbody>
                         @forelse($items as $index => $item)
                             <tr>
-                                <td>{{ $items->firstItem() + $index }}</td>
-                                <td><strong>{{ $item->item_code }}</strong></td>
-                                <td>{{ $item->name }}</td>
-                                <td>
+                                <td data-label="No">{{ $items->firstItem() + $index }}</td>
+                                <td data-label="Kode Barang"><strong>{{ $item->item_code }}</strong></td>
+                                <td data-label="Nama Barang">{{ $item->name }}</td>
+                                <td data-label="Kategori">
                                     <span class="badge bg-secondary">{{ $item->category->name }}</span>
                                 </td>
-                                <td class="text-center">
+                                <td data-label="Stok" class="text-center">
                                     @if($item->stock < 10)
                                         <span class="badge bg-warning text-dark">
                                             <i class="fas fa-exclamation-triangle me-1"></i>{{ $item->stock }}
@@ -83,8 +83,8 @@
                                         <span class="badge bg-success">{{ $item->stock }}</span>
                                     @endif
                                 </td>
-                                <td class="text-end">{{ $item->price_formatted }}</td>
-                                <td class="text-center">
+                                <td data-label="Harga" class="text-end">{{ $item->price_formatted }}</td>
+                                <td data-label="Aksi" class="text-center">
                                     <a href="{{ route('items.show', $item->id) }}" class="btn btn-info btn-sm" title="Detail">
                                         <i class="fas fa-eye"></i>
                                     </a>

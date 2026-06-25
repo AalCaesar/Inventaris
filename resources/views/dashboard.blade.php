@@ -129,18 +129,18 @@
                                 <tbody>
                                     @foreach($lowStockItems as $item)
                                     <tr>
-                                        <td><code class="text-primary">{{ $item->item_code }}</code></td>
-                                        <td>{{ $item->name }}</td>
-                                        <td>
+                                        <td data-label="Kode"><code class="text-primary">{{ $item->item_code }}</code></td>
+                                        <td data-label="Nama Barang">{{ $item->name }}</td>
+                                        <td data-label="Kategori">
                                             <span class="badge bg-secondary">{{ $item->category->name }}</span>
                                         </td>
-                                        <td class="text-center">
+                                        <td data-label="Stok" class="text-center">
                                             <span class="badge bg-warning text-dark">
                                                 <i class="fas fa-exclamation-triangle me-1"></i>
                                                 {{ $item->stock }}
                                             </span>
                                         </td>
-                                        <td class="text-center">
+                                        <td data-label="Aksi" class="text-center">
                                             <a href="{{ route('items.edit', $item->id) }}" class="btn btn-sm btn-primary" title="Edit">
                                                 <i class="fas fa-edit"></i>
                                             </a>
@@ -219,6 +219,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     legend: {
                         display: true,
                         position: 'top',
+                        labels: {
+                            color: '#e5e7eb',
+                            font: {
+                                size: 13,
+                                weight: '600'
+                            }
+                        }
                     },
                     tooltip: {
                         callbacks: {
@@ -233,14 +240,29 @@ document.addEventListener('DOMContentLoaded', function() {
                         beginAtZero: true,
                         ticks: {
                             stepSize: 1,
-                            precision: 0
+                            precision: 0,
+                            color: '#cbd5e1',
+                            font: {
+                                weight: '600'
+                            }
                         },
                         grid: {
                             display: true,
                             drawBorder: true,
+                            color: 'rgba(148, 163, 184, .18)'
                         }
                     },
                     x: {
+                        ticks: {
+                            color: '#cbd5e1',
+                            maxRotation: 0,
+                            minRotation: 0,
+                            autoSkip: false,
+                            font: {
+                                size: 11,
+                                weight: '600'
+                            }
+                        },
                         grid: {
                             display: false
                         }
