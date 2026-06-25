@@ -721,7 +721,9 @@ Aplikasi siap untuk di-deploy ke production server.
 
 ### 🎯 NEXT STEPS FOR TEAM
 
-**Status Saat Ini:** FASE 0-5 COMPLETE ✅ | FASE 6 PENDING ⏳
+**Status Saat Ini:** FASE 0-6 COMPLETE ✅ | **DEPLOYED TO PRODUCTION** 🚀
+
+**Production URL:** https://inventaris-production-f841.up.railway.app/
 
 ---
 

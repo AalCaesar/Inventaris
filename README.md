@@ -246,6 +246,14 @@ Lihat panduan detail di dokumentasi deployment.
 
 ---
 
+## 🌐 Live Demo
+
+**Production URL:** https://inventaris-production-f841.up.railway.app/
+
+Aplikasi sudah di-deploy dan berjalan di Railway. Anda bisa langsung mengakses untuk melihat fitur-fitur yang tersedia.
+
+---
+
 ## 📄 License
 
 Proyek ini menggunakan [MIT License](LICENSE).
