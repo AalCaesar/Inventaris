@@ -1,4 +1,4 @@
-# Testing Checklist - Aplikasi Inventaris
+﻿# Testing Checklist - Aplikasi Inventaris
 
 **Versi:** 1.0  
 **Tanggal:** 2026-06-24  
