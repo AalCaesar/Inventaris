@@ -7,9 +7,6 @@ use Illuminate\Support\Facades\DB;
 
 class DataInventarisSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         // 1. Tambahkan Kategori
@@ -25,11 +22,12 @@ class DataInventarisSeeder extends Seeder
             $categoryIds[$cat] = $id;
         }
 
-        // 2. Tambahkan Barang
-        // Pastikan nama kolom 'category_id', 'stock', 'name' sesuai dengan database kamu
+        // 2. Tambahkan Barang dengan kolom lengkap
         DB::table('items')->insert([
             [
                 'name' => 'Laptop Asus',
+                'item_code' => 'BRG-001', // Tambahkan ini
+                'price' => 15000000,      // Tambahkan ini
                 'category_id' => $categoryIds['Elektronik'],
                 'stock' => 10,
                 'created_at' => now(),
@@ -37,6 +35,8 @@ class DataInventarisSeeder extends Seeder
             ],
             [
                 'name' => 'Meja Kantor',
+                'item_code' => 'BRG-002', // Tambahkan ini
+                'price' => 500000,        // Tambahkan ini
                 'category_id' => $categoryIds['Furniture'],
                 'stock' => 5,
                 'created_at' => now(),
@@ -44,6 +44,8 @@ class DataInventarisSeeder extends Seeder
             ],
             [
                 'name' => 'Kertas A4',
+                'item_code' => 'BRG-003', // Tambahkan ini
+                'price' => 50000,         // Tambahkan ini
                 'category_id' => $categoryIds['Alat Tulis'],
                 'stock' => 100,
                 'created_at' => now(),
