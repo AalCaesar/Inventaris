@@ -9,7 +9,7 @@
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
         <div>
             <h2 class="text-2xl font-bold text-[#334155]">Daftar Kategori</h2>
-            <p class="text-sm text-[#64748b] mt-1">Kelola daftar klasifikasi barang inventaris Anda</p>
+            <p class="text-sm md:text-base text-[#64748b] mt-1">Kelola daftar klasifikasi barang inventaris Anda</p>
         </div>
 
         <!-- Tombol Aksi Utama (Solid Indigo) -->

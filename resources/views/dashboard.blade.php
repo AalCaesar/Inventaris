@@ -67,7 +67,7 @@
                             <span class="w-2 h-2 rounded-full bg-amber-500"></span>
                             Barang Perlu Restock
                         </h3>
-                        <p class="text-sm text-[#64748b] mt-1">Item dengan stok kurang dari 10 unit.</p>
+                        <p class="text-sm md:text-base text-[#64748b] mt-1">Item dengan stok kurang dari 10 unit.</p>
                     </div>
                     @if($lowStockItems->count() > 0)
                         <a href="{{ route('items.index') }}" class="text-sm font-medium text-[#6366f1] hover:text-[#4f46e5] transition-colors">
