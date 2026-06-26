@@ -2,33 +2,38 @@
 
 @section('title', 'Daftar Barang')
 
-@section('breadcrumb')
-    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Barang</li>
-@endsection
-
 @section('content')
-<div class="container-fluid">
-    <div class="row mb-3">
-        <div class="col-md-8">
-            <h2>Daftar Barang</h2>
+<div class="max-w-7xl mx-auto w-full">
+
+    <!-- Header & Action -->
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+        <div>
+            <h2 class="text-2xl font-bold text-[#334155]">Daftar Barang</h2>
+            <p class="text-sm text-[#64748b] mt-1">Kelola semua data barang inventaris Anda</p>
         </div>
-        <div class="col-md-4 text-end">
-            <a href="{{ route('items.create') }}" class="btn btn-primary">
-                <i class="fas fa-plus me-2"></i>Tambah Barang
-            </a>
-        </div>
+
+        <!-- Tombol Aksi Utama (Solid Indigo) -->
+        <a href="{{ route('items.create') }}" class="inline-flex items-center justify-center px-4 py-2 bg-[#6366f1] text-white text-sm font-medium rounded-[6px] transition-all duration-200 hover:bg-[#4f46e5] shadow-sm">
+            <i class="fas fa-plus mr-2"></i> Tambah Barang
+        </a>
     </div>
 
-    <!-- Search & Filter Section -->
-    <div class="card mb-3">
-        <div class="card-body">
-            <form method="GET" action="{{ route('items.index') }}" class="row g-3">
-                <div class="col-md-5">
-                    <input type="text" name="search" class="form-control" placeholder="Cari kode atau nama barang..." value="{{ request('search') }}">
+    <!-- Search & Filter Card -->
+    <div class="bg-white border border-[#e2e8f0] rounded-[8px] shadow-[0_1px_3px_rgba(0,0,0,0.1)] p-6 mb-6">
+        <form method="GET" action="{{ route('items.index') }}">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+
+                <!-- Search Input -->
+                <div class="md:col-span-5">
+                    <label class="block text-sm font-medium text-[#334155] mb-1.5">Pencarian</label>
+                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari kode atau nama barang..."
+                           class="w-full border border-[#e2e8f0] rounded-[6px] px-4 py-2 text-sm text-[#334155] bg-[#f8fafc] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#6366f1]/20 focus:border-[#6366f1] transition-all">
                 </div>
-                <div class="col-md-4">
-                    <select name="category_id" class="form-select">
+
+                <!-- Category Filter -->
+                <div class="md:col-span-4">
+                    <label class="block text-sm font-medium text-[#334155] mb-1.5">Filter Kategori</label>
+                    <select name="category_id" class="w-full border border-[#e2e8f0] rounded-[6px] px-4 py-2 text-sm text-[#334155] bg-[#f8fafc] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#6366f1]/20 focus:border-[#6366f1] transition-all cursor-pointer">
                         <option value="">-- Semua Kategori --</option>
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>
@@ -37,90 +42,132 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-md-3">
-                    <button type="submit" class="btn btn-primary w-50">
-                        <i class="fas fa-search me-2"></i>Cari
+
+                <!-- Search Buttons -->
+                <div class="md:col-span-3 flex items-center gap-2">
+                    <button type="submit" class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-[#6366f1] text-white text-sm font-medium rounded-[6px] transition-all duration-200 hover:bg-[#4f46e5]">
+                        <i class="fas fa-search mr-2"></i> Cari
                     </button>
-                    <a href="{{ route('items.index') }}" class="btn btn-secondary w-45">
-                        <i class="fas fa-redo me-2"></i>Reset
+                    <a href="{{ route('items.index') }}" title="Reset" class="inline-flex items-center justify-center px-4 py-2 bg-white border border-[#e2e8f0] text-[#64748b] text-sm font-medium rounded-[6px] transition-all duration-200 hover:bg-[#f8fafc] hover:text-[#334155]">
+                        <i class="fas fa-redo"></i>
                     </a>
                 </div>
-            </form>
-        </div>
+
+            </div>
+        </form>
     </div>
 
-    <!-- Items Table -->
-    <div class="card">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead class="table-light">
-                        <tr>
-                            <th width="5%">No</th>
-                            <th width="12%">Kode Barang</th>
-                            <th>Nama Barang</th>
-                            <th width="15%">Kategori</th>
-                            <th width="10%" class="text-center">Stok</th>
-                            <th width="15%" class="text-end">Harga</th>
-                            <th width="18%" class="text-center">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse($items as $index => $item)
-                            <tr>
-                                <td data-label="No">{{ $items->firstItem() + $index }}</td>
-                                <td data-label="Kode Barang"><strong>{{ $item->item_code }}</strong></td>
-                                <td data-label="Nama Barang">{{ $item->name }}</td>
-                                <td data-label="Kategori">
-                                    <span class="badge bg-secondary">{{ $item->category->name }}</span>
-                                </td>
-                                <td data-label="Stok" class="text-center">
-                                    @if($item->stock < 10)
-                                        <span class="badge bg-warning text-dark">
-                                            <i class="fas fa-exclamation-triangle me-1"></i>{{ $item->stock }}
-                                        </span>
-                                    @else
-                                        <span class="badge bg-success">{{ $item->stock }}</span>
-                                    @endif
-                                </td>
-                                <td data-label="Harga" class="text-end">{{ $item->price_formatted }}</td>
-                                <td data-label="Aksi" class="text-center">
-                                    <a href="{{ route('items.show', $item->id) }}" class="btn btn-info btn-sm" title="Detail">
+    <!-- Items Table Card -->
+    <div class="bg-white border border-[#e2e8f0] rounded-[8px] shadow-[0_1px_3px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col">
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-[#e2e8f0]">
+                <thead class="bg-[#f8fafc]">
+                    <tr>
+                        <th scope="col" class="px-6 py-4 text-left text-xs font-semibold text-[#64748b] uppercase tracking-wider w-[5%]">No</th>
+                        <th scope="col" class="px-6 py-4 text-left text-xs font-semibold text-[#64748b] uppercase tracking-wider w-[12%]">Kode</th>
+                        <th scope="col" class="px-6 py-4 text-left text-xs font-semibold text-[#64748b] uppercase tracking-wider">Nama Barang</th>
+                        <th scope="col" class="px-6 py-4 text-left text-xs font-semibold text-[#64748b] uppercase tracking-wider w-[15%]">Kategori</th>
+                        <th scope="col" class="px-6 py-4 text-center text-xs font-semibold text-[#64748b] uppercase tracking-wider w-[10%]">Stok</th>
+                        <th scope="col" class="px-6 py-4 text-right text-xs font-semibold text-[#64748b] uppercase tracking-wider w-[15%]">Harga</th>
+                        <th scope="col" class="px-6 py-4 text-center text-xs font-semibold text-[#64748b] uppercase tracking-wider w-[18%]">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-[#e2e8f0]">
+                    @forelse($items as $index => $item)
+                        <tr class="hover:bg-[#f8fafc] transition-colors duration-150">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-[#64748b]">
+                                {{ $items->firstItem() + $index }}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="font-mono text-sm font-semibold text-[#6366f1] bg-[#6366f1]/10 px-2 py-1 rounded">{{ $item->item_code }}</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-[#334155]">
+                                {{ $item->name }}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0]">
+                                    {{ $item->category->name }}
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                @if($item->stock < 10)
+                                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700 border border-amber-200">
+                                        <i class="fas fa-exclamation-triangle mr-1.5"></i>{{ $item->stock }}
+                                    </span>
+                                @else
+                                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-700 border border-emerald-200">
+                                        {{ $item->stock }}
+                                    </span>
+                                @endif
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-[#334155] text-right">
+                                {{ $item->price_formatted }}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-center">
+
+                                <!-- Container Tombol (flex gap-2) -->
+                                <div class="flex items-center justify-center gap-2">
+
+                                    <!-- Tombol Detail (Ghost Info) -->
+                                    <a href="{{ route('items.show', $item->id) }}" title="Detail"
+                                       class="inline-flex items-center justify-center p-2 text-sm font-medium text-[#0ea5e9] bg-[#0ea5e9]/10 rounded-[6px] transition-all duration-200 hover:bg-[#0ea5e9]/20">
                                         <i class="fas fa-eye"></i>
                                     </a>
-                                    <a href="{{ route('items.edit', $item->id) }}" class="btn btn-warning btn-sm" title="Edit">
+
+                                    <!-- Tombol Edit (Ghost Primary/Indigo) -->
+                                    <a href="{{ route('items.edit', $item->id) }}" title="Edit"
+                                       class="inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-[#6366f1] bg-[#6366f1]/10 rounded-[6px] transition-all duration-200 hover:bg-[#6366f1]/20">
                                         <i class="fas fa-edit"></i>
+                                        <!-- Responsivitas Teks -->
+                                        <span class="ml-1.5 hidden sm:inline-block">Edit</span>
                                     </a>
-                                    <form action="{{ route('items.destroy', $item->id) }}" method="POST" class="d-inline delete-form">
+
+                                    <!-- Tombol Hapus (Ghost Danger/Merah Lembut) -->
+                                    <form action="{{ route('items.destroy', $item->id) }}" method="POST" class="inline-block delete-form m-0">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="button" class="btn btn-danger btn-sm delete-btn" title="Hapus">
+                                        <button type="button" title="Hapus"
+                                                class="delete-btn inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-[#e11d48] bg-[#e11d48]/10 rounded-[6px] transition-all duration-200 hover:bg-[#e11d48]/20">
                                             <i class="fas fa-trash"></i>
+                                            <!-- Responsivitas Teks -->
+                                            <span class="ml-1.5 hidden sm:inline-block">Hapus</span>
                                         </button>
                                     </form>
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="7" class="text-center py-4">
-                                    <i class="fas fa-box-open fa-3x text-muted mb-3"></i>
-                                    <p class="text-muted">Tidak ada data barang</p>
-                                    @if(request('search') || request('category_id'))
-                                        <a href="{{ route('items.index') }}" class="btn btn-sm btn-primary">Reset Filter</a>
-                                    @endif
-                                </td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-            </div>
 
-            <!-- Pagination -->
-            <div class="mt-3">
+                                </div>
+
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="7" class="px-6 py-12 text-center">
+                                <div class="flex flex-col items-center justify-center">
+                                    <div class="w-16 h-16 bg-[#f1f5f9] rounded-full flex items-center justify-center mb-4">
+                                        <i class="fas fa-box-open text-2xl text-[#94a3b8]"></i>
+                                    </div>
+                                    <h3 class="text-base font-semibold text-[#334155]">Tidak ada data barang</h3>
+                                    <p class="text-sm text-[#64748b] mt-1 mb-4">Mulai dengan menambahkan barang baru ke dalam inventaris Anda.</p>
+                                    @if(request('search') || request('category_id'))
+                                        <a href="{{ route('items.index') }}" class="inline-flex items-center justify-center px-4 py-2 bg-white border border-[#e2e8f0] text-[#334155] text-sm font-medium rounded-[6px] transition-all duration-200 hover:bg-[#f8fafc]">
+                                            Reset Pencarian
+                                        </a>
+                                    @endif
+                                </div>
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination Section -->
+        @if($items->hasPages())
+            <div class="px-6 py-4 border-t border-[#e2e8f0] bg-white">
                 {{ $items->appends(request()->query())->links() }}
             </div>
-        </div>
+        @endif
     </div>
+
 </div>
 @endsection
 
@@ -129,21 +176,26 @@
     document.addEventListener('DOMContentLoaded', function() {
         // Delete confirmation with SweetAlert2
         const deleteButtons = document.querySelectorAll('.delete-btn');
-        
+
         deleteButtons.forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
                 const form = this.closest('.delete-form');
-                
+
                 Swal.fire({
                     title: 'Hapus Barang?',
                     text: "Data barang akan dihapus permanen!",
                     icon: 'warning',
                     showCancelButton: true,
-                    confirmButtonColor: '#dc3545',
-                    cancelButtonColor: '#6c757d',
+                    confirmButtonColor: '#e11d48',
+                    cancelButtonColor: '#64748b',
                     confirmButtonText: 'Ya, Hapus!',
-                    cancelButtonText: 'Batal'
+                    cancelButtonText: 'Batal',
+                    customClass: {
+                        popup: 'rounded-lg',
+                        confirmButton: 'rounded-md',
+                        cancelButton: 'rounded-md'
+                    }
                 }).then((result) => {
                     if (result.isConfirmed) {
                         form.submit();
